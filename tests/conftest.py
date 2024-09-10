@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from config import URL, RESOLUTION
 
+
 def browser_settings():
     chrome_options = webdriver.ChromeOptions()
     # chrome_options.add_argument('--headless')
@@ -10,7 +11,7 @@ def browser_settings():
 
 
 @pytest.fixture
-def driver():
+def driver() -> WebDriver:
     chrome = webdriver.Chrome(options=browser_settings())
     chrome.get(URL)
 
