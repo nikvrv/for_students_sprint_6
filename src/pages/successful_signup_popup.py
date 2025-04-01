@@ -1,6 +1,5 @@
-from src.base_page import BasePage
+from src.pages.base_page import BasePage
 from selenium.webdriver.common.by import By
-import allure
 
 
 class SuccessfulSignupPopup(BasePage):
@@ -14,7 +13,7 @@ class SuccessfulSignupPopup(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def get_text(self):
+    def get_label_text(self):
         return self.find_element(self._LABEL_LOCATOR).text
 
     def click_close_button(self):

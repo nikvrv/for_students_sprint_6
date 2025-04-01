@@ -1,6 +1,7 @@
+import allure
 import pytest
 from selenium import webdriver
-from config import URL, RESOLUTION
+from src.config import URL, RESOLUTION
 
 
 def browser_settings():
@@ -11,10 +12,17 @@ def browser_settings():
 
 
 @pytest.fixture
-def driver() -> WebDriver:
+def driver():
     chrome = webdriver.Chrome(options=browser_settings())
     chrome.get(URL)
-
     yield chrome
-
     chrome.quit()
+
+
+@pytest.fixture
+def login(driver):
+    login_page = LoginPage(driver)
+    login_page.navigate()
+    login_page.enter_email()
+    login_page.enter_password()
+    login_page.click_submit()
