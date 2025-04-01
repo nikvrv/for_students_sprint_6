@@ -6,8 +6,8 @@ from src.config import URL, RESOLUTION
 
 def browser_settings():
     chrome_options = webdriver.ChromeOptions()
-    # chrome_options.add_argument('--headless')
-    chrome_options.add_argument(f'--window-size={RESOLUTION[0]},{RESOLUTION[1]}')
+    chrome_options.add_argument('--headless')
+    # chrome_options.add_argument(f'--window-size={RESOLUTION[0]},{RESOLUTION[1]}')
     return chrome_options
 
 
